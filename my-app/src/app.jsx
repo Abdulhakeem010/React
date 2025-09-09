@@ -1,9 +1,10 @@
-function App() {
+export default function app() {
   return (
     <div>
-      <h1>Hello React 🚀</h1>
+      <h1>Hello World!</h1>
+      <button>Get advice</button>
     </div>
   );
 }
 
-export default App;
+// https://api.adviceslip.com/advice
