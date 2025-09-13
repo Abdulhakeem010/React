@@ -1,28 +1,23 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import GetCurentTime from "./components/time";
-import GetAdvice from "./components/getAdvice";
 
 export default function App() {
-  // const [advice, setAdvice] = useState("");
+  const [advice, setAdvice] = useState("");
   const [count, setCount] = useState(0);
 
-  // async function getAdvice() {
-  //   const res = await fetch("https://api.adviceslip.com/advice");
-  //   const data = await res.json();
+  async function getAdvice() {
+    const res = await fetch("https://api.adviceslip.com/advice");
+    const data = await res.json();
 
-  //   setAdvice(data.slip.advice);
+    setAdvice(data.slip.advice);
     setCount((c) => c + 1);
-  // }
-
-  // useEffect(function() {
-  //   GetAdvice
-  // },[])
+  }
 
   return (
     <div>
-       <GetAdvice/>
-      <GetCurentTime/>
-      <button onClick={GetAdvice}>Get advice</button>
+       <GetCurentTime/>
+       <h1>{advice}</h1>
+      <button onClick={getAdvice}>Get advice</button>
      <Message count={count}/>
     </div>
   );
